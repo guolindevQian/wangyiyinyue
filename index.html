@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网易音乐</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        html,body{
+            font-family: "microsoft yahei";
+            font-size: 0.8rem;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .page_head{
+            width: 100%;
+            height: 60px;
+            background-color: #cd2626;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+        .page_palybar{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #EEEEEE;
+            border: 1px solid#dddddd;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+        .page_palybar>.palybar_btns{
+            width: 220px;
+            height: 100%;
+            text-align: center;
+        }
+        .page_palybar>.palybar_btns>.btn{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #cd2626;
+            border-radius: 50%;
+            margin-left: 17px;
+            position: relative;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .page_palybar>.palybar_btns>.btn>.fa{
+            font-size: 1.5rem;
+            color: #ffffff;
+            position: relative;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .page_palybar>.palybar_btns>.play{
+            width: 45px;
+            height: 45px;
+        }
+
+        .page_menu{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 220px;
+            background-color: #EEEEEE;
+            border: 1px solid#dddddd;
+            padding: 60px 0 60px 0;
+            box-sizing: border-box;
+        }
+        .page_main{
+            margin:60px 0 60px 220px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .page_main>.main_container{
+            height: 100%;
+            overflow-y: scroll;
+        }
+        .smallwindow{
+            height: 60px;
+            width: 220px;
+            position: absolute;
+            left: 0;
+            bottom: 60px;
+            box-sizing: border-box;
+            background-color: #EEEEEE;
+            
+        }
+        .smallwindow>.poster{
+            float: left;
+            width: 30%;
+            height: 100%;
+        }
+        .smallwindow>.poster>img{
+            width: 100%;
+            height: 100%;
+        }
+        .smallwindow>.info{
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+        .smallwindow>.info>p{
+            margin: 5px 2.5px;
+        }
+        .smallwindow>.btngroups{
+            float: left;
+            width: 10%;
+            height: 100%;
+            
+        }
+        .smallwindow>.btngroups>div{
+            height: 50%;
+            
+        }
+        
+        .menulist{
+            box-sizing:border-box;
+            overflow-y:scroll;
+            height: 100%;
+            padding-bottom: 60px;
+        }
+        .menulist>.list>.title{
+            padding-left: 10px;
+            line-height: 1.5rem;
+            color: #BBBBBB;
+        }
+        .menulist>.list>.btngroups>.btn{
+            padding-left: 20px;
+            line-height: 1.5rem;
+            color: #BBBBBB;
+        }
+        .page_main>.main_container>.playlist_info{
+            padding: 20px 40px;
+            margin-bottom: 30px;
+        }
+        .page_main>.main_container>.playlist_info>.info_poster{
+            margin-right: 40px;
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+        .clear::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .page_main>.main_container>.playlist_info>.info_poster>img{
+            width: 100%;
+            height: 100%;
+        }
+        .page_main>.main_container>.playlist_info>.info_detail{
+            position: relative;
+            float: left;
+            width: calc(100% - 200px - 40px);
+        }
+        .page_main>.main_container>.playlist_info>.info_detail>.detail_palyinfo{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .page_main>.main_container>.playlist_info>.info_detail>.detail_name>.tag{
+            color: #ffffff;
+            background-color: #cd2626;
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+        .page_main>.main_container>.playlist_info>.info_detail>.detail_name>.name{
+            font-size: 1.5rem;
+        }
+        .page_main>.main_container>.playlist_info>.info_detail>.detail_create{
+            margin: 15px 0;
+        }
+        .page_main>.main_container>.playlist_info>.info_detail>.detail_btns>.btn{
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page_head">page_head</div>
+    <div class="page_menu">
+        <div class="menulist">
+            <div class="list">
+                <p class="title">推荐</p>
+                <div class="btngroups">
+                    <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;发行音乐</p>
+                    <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;私人</p>
+                    <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;mv</p>
+                    <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的朋友</p>
+                </div>
+            </div>
+            <div class="list">
+                    <p class="title">推荐</p>
+                    <div class="btngroups">
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;发行音乐</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;私人</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;mv</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的朋友</p>
+                    </div>
+            </div>
+            <div class="list">
+                    <p class="title">推荐</p>
+                    <div class="btngroups">
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;发行音乐</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;私人</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;mv</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的朋友</p>
+                    </div>
+            </div>
+            <div class="list">
+                    <p class="title">推荐</p>
+                    <div class="btngroups">
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;发行音乐</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;私人</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;mv</p>
+                        <p class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的朋友</p>
+                    </div>
+            </div>
+        </div>
+        <div class="smallwindow">
+            <div class="poster">
+                <img src="img/timg.jpg" alt="图片">
+            </div>
+            <div class="info">
+                <p>追光者</p>
+                <p>宋祖儿</p>
+            </div>
+            <div class="btngroups">
+                <div><i class="fa fa-music" aria-hidden="true"></i></div>
+                <div><i class="fa fa-music" aria-hidden="true"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="page_palybar">
+        <div class="palybar_btns">
+            <div class="btn">
+                    <i class="fa fa-step-backward" aria-hidden="true"></i>
+            </div>
+            <div class="btn play">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+            </div>
+            <div class="btn">
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="page_main">
+        <div class="main_container">
+            <div class="playlist_info clear">
+                <div class="info_poster">
+                    <img src="img/timg.jpg" alt="">
+                </div>
+                <div class="info_detail">
+                    <div class="detail_palyinfo">
+                            <span><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;9</span>
+                            <span><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;1</span>
+                    </div>
+                    <div class="detail_name">
+                        <span class="tag">歌单</span>
+                        <span class="name">我爱你</span>
+                    </div>
+                    <div class="detail_create">
+                        <span>我爱你</span>
+                        <span>2020-01-01</span>
+                        <span>创建</span>
+                    </div>
+                    <div class="detail_btns">
+                            <span class="btn"><i class="fa fa-music" aria-hidden="true" style="color: #cd2626"></i>&nbsp;&nbsp;播放全部</span>
+                            <span class="btn"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;播放全部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist_tab"></div>
+        </div>
+    </div>
+</body>
+</html>
