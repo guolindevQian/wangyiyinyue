@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            var audio=$("#audio").get(0);
+            $("#play").click(function(){
+                if(audio.paused){
+                    audio.play();
+                    $("#play").val("pause");
+                }else{
+                    audio.pause();
+                    $("#play").val("play");
+                }
+                
+            });
+            //播放时进度条
+            $("#audio").on("timeupdate",function(){
+                //播放时的时间和结束的时长
+                //console.log(this.currentTime+"/"+this.duration);
+                //缓冲时间段
+                var tRanges = this.buffered;
+                //tRanges.length-1是从0开始计算;end(index);
+                var endTime=tRanges.end(tRanges.length-1);
+                console.log(endTime+"/"+this.duration);
+            })
+            //一首歌播放完后下一首
+            $("#audio").on("ended",function(){
+                console.log("end");
+            })
+        });
+    </script>
+</head>
+<body>
+    <audio id="audio" src="http://music.163.com/song/media/outer/url?id=483671599.mp3" ></audio>
+    <input type="button" value="play" id="play">
+</body>
+</html>

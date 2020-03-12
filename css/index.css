@@ -1,0 +1,354 @@
+html,body{
+    font-family: "microsoft yahei";
+    font-size: 0.8rem;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.page_head{
+    width: 100%;
+    height: 60px;
+    color: white;
+    background-color: #cd2626;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.page_palybar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #EEEEEE;
+    border: 1px solid#dddddd;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.page_palybar>.palybar_btns{
+    width: 220px;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+.page_palybar>.palybar_btns>.btn{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #cd2626;
+    border-radius: 50%;
+    margin-left: 17px;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.page_palybar>.palybar_btns>.btn>.fa{
+    font-size: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.page_palybar>.palybar_btns>.play{
+    width: 45px;
+    height: 45px;
+}
+.page_palybar>.playbar_process{
+    width: calc(100% - 220px - 300px);
+    height: 100%;
+    float: left;
+    
+}
+.page_palybar>.playbar_process>.play_process{
+    position: relative;
+    top: 50%;
+    left: 0;
+    height: 10px;
+    width: 80%;
+    background-color: #c4c4c4;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.page_palybar>.playbar_process>.play_process>.process_cache{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #A2A2A2;
+    border-radius: 5px;
+    transition: width 2s ease;
+}
+.page_palybar>.playbar_process>.play_process>.process_cache>.process_current{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #cd2626;
+    border-radius:5px;
+}
+.page_palybar>.playbar_process>.play_process>.process_cache>.process_current>.circle{
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+}
+.page_palybar>.playbar_process>.play_process>.time_star{
+    position: absolute;
+    top: 50%;
+    left: -7%;
+    transform: translateY(-50%);
+}
+.page_palybar>.playbar_process>.play_process>.time_end{
+    position: absolute;
+    top: 50%;
+    right: -7%;
+    transform: translateY(-50%);
+}
+.page_palybar>.playbar_yinbtn{
+    width: 300px;
+    height: 100%;
+    float: left;
+}
+.page_palybar>.playbar_yinbtn>.play_yinbiao{    
+    position: relative;
+    margin: 0 auto;
+    height: 10px;
+    width: 60%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.page_palybar>.playbar_yinbtn>.play_yinbiao>.play_tu{
+    float: left;
+    width: 10%;
+    height: 100%;
+    position: relative;
+    transform: translateY(-50%);
+}
+.page_palybar>.playbar_yinbtn>.play_yinbiao>.play_yin{
+    float: left;
+    height: 100%;
+    width: 90%;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+}
+.page_palybar>.playbar_yinbtn>.play_yinbiao>.play_yin>.yinbtn{
+    height: 100%;
+    width: 50px;
+    background-color: #A2A2A2;
+    border-radius: 5px;
+    position: relative;
+}
+.page_palybar>.playbar_yinbtn>.play_yinbiao>.play_yin>.yinbtn>.yinbtn_biao{
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+
+}
+.page_menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background-color: #EEEEEE;
+    border: 1px solid#dddddd;
+    padding: 60px 0 60px 0;
+    box-sizing: border-box;
+}
+.page_main{
+    margin:60px 0 60px 220px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.page_main>.main_container{
+    height: 100%;
+    overflow-y: scroll;
+}
+.smallwindow{
+    height: 60px;
+    width: 220px;
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+    
+}
+.smallwindow>.poster{
+    float: left;
+    width: 30%;
+    height: 100%;
+    position: relative;
+}
+.smallwindow>.poster>.poster_hoverback{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.smallwindow>.poster>.poster_hoverback>.fa{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+}
+.smallwindow>.poster:hover>.poster_hoverback{
+    display: block;
+}
+.smallwindow>.poster>img{
+    width: 100%;
+    height: 100%;
+}
+.smallwindow>.info{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+.smallwindow>.info>p{
+    margin: 5px 2.5px;
+}
+.smallwindow>.btngroups{
+    float: left;
+    width: 10%;
+    height: 100%;
+    
+}
+.smallwindow>.btngroups>div{
+    height: 50%;
+    
+}
+
+.menulist{
+    box-sizing:border-box;
+    overflow-y:scroll;
+    height: 100%;
+    padding-bottom: 60px;
+}
+.menulist>.list>.title{
+    padding-left: 10px;
+    line-height: 1.5rem;
+    color: #BBBBBB;
+}
+.menulist>.list>.btngroups>.btn{
+    padding-left: 20px;
+    line-height: 1.5rem;
+    color: #BBBBBB;
+}
+.page_main>.main_container>.playlist_info{
+    padding: 20px 40px;
+    margin-bottom: 30px;
+}
+.page_main>.main_container>.playlist_info>.info_poster{
+    margin-right: 40px;
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.page_main>.main_container>.playlist_info>.info_poster>img{
+    width: 100%;
+    height: 100%;
+}
+.page_main>.main_container>.playlist_info>.info_detail{
+    position: relative;
+    float: left;
+    width: calc(100% - 200px - 40px);
+}
+.page_main>.main_container>.playlist_info>.info_detail>.detail_palyinfo{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.page_main>.main_container>.playlist_info>.info_detail>.detail_name>.tag{
+    color: #ffffff;
+    background-color: #cd2626;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+.page_main>.main_container>.playlist_info>.info_detail>.detail_name>.name{
+    font-size: 1.5rem;
+}
+.page_main>.main_container>.playlist_info>.info_detail>.detail_create{
+    margin: 15px 0;
+}
+.page_main>.main_container>.playlist_info>.info_detail>.detail_btns>.btn{
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.page_main>.main_container>.playlist_tab>.tab_btns{
+    padding: 0 40px;
+    border-bottom:1px solid #cd2626;
+}
+.page_main>.main_container>.playlist_tab>.tab_btns>.btn{
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    margin: 0 3px;
+    border: 1px solid #a2a2a2;
+    border-bottom: none;
+}
+.page_main>.main_container>.playlist_tab>.tab_btns>.active{
+    color: white;
+    background-color: #cd2626;
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table{
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table th,
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table td{
+    padding-left: 15px;
+    height: 2rem;
+    max-width: 200px;
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table th{
+    border-right: 1px solid #c4c4c4; 
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table>tbody>tr:nth-of-type(2n){
+    background-color: #f5f5f7;
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table>tbody>tr:hover{
+    background-color:#e3e3e5; 
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table>tbody>tr>td:first-of-type{
+    padding-right:10px;
+    text-align: right;
+    color: #9c9c9c; 
+}
+.page_main>.main_container>.playlist_tab>.tab_musiclis>table>tbody>tr>td.index.active{
+    font-size: 1rem;
+    color: #c52f30;
+}
